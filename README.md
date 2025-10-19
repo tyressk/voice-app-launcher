@@ -1,6 +1,6 @@
 # Voice App Launcher
 
-A wake-word detection app/background service in Python using [openWakeWord](https://github.com/dscripka/openWakeWord/). It listens for specific wake words (like ‘Open Browser’) and launches apps and/or commands when detected.
+A wake-word detection app/background service in Python using [openWakeWord](https://github.com/dscripka/openWakeWord/), currently only for Linux. It listens for specific wake words (like ‘Open Browser’) and launches apps and/or commands when detected.
 
 
 ## How to run on CLI
