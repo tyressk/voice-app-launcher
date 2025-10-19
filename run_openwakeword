@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# Simple wrapper to run the service from the project directory.
+set -euo pipefail
+
+HERE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+PYTHON="${PYTHON:-python3}"
+
+exec "$PYTHON" "$HERE/main.py" "$@"

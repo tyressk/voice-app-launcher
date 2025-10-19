@@ -1,0 +1,22 @@
+
+[Unit]
+Description=VoiceAppLauncher (per-user) service
+After=network.target sound.target
+
+[Service]
+Type=simple
+# Configure the virtualenv path via the VENV environment variable below. Update the path
+# to point to the venv in the app (this assumes the app is in /home/yourusername/voice-app-launcher).
+Environment=VENV=%h/voice-app-launcher/.venv
+WorkingDirectory=%h/voice-app-launcher
+# Use the venv python to ensure the service runs inside the virtualenv.
+ExecStart=%h/voice-app-launcher/.venv/bin/python %h/voice-app-launcher/main.py
+Restart=on-failure
+RestartSec=5
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=voice_app_launcher
+ExecReload=/bin/kill -HUP $MAINPID
+
+[Install]
+WantedBy=default.target
